@@ -3,12 +3,14 @@ import { createMarkup } from './createMarkup';
 import SlimSelect from 'slim-select'
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import 'slim-select/dist/slimselect.css';
-
+import '../src/styles.css'
 
 const breedSelect = document.querySelector('.breed-select');
 const catInfo = document.querySelector('.cat-info');
 const loader = document.querySelector('.loader');
 const error = document.querySelector('.error');
+
+error.classList.add('is-hidden');
 
 let storedBreeds = [];
 
@@ -30,9 +32,14 @@ breedSelect.addEventListener('change', onSelectBreed);
 
 function onSelectBreed(event) {
     const breedId = event.currentTarget.value;
-    console.log(breedId);
+    catInfo.classList.add('is-hidden');
+    loader.classList.remove('is-hidden');
+
+   // console.log(breedId);
     fetchCatByBreed(breedId)
         .then(data => {
+            loader.classList.add('is-hidden');
+            catInfo.classList.remove('is-hidden');
             catInfo.innerHTML = createMarkup(data[0]);
         })
         .catch(err => console.log(err));
