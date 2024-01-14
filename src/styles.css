@@ -8,7 +8,7 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     margin: 0;
-    height: 100vh;
+    padding-top: 50px;
 }
 
 ul {
@@ -95,10 +95,10 @@ p {
 
 .container{
     margin: 0 auto;
-    height: 100vh;
-    padding: 20px;
-    max-width: 1200px;
+    padding: 20px 20px 50px 20px;
+    max-width: 1000px;
     background-color: #faebd7;
+    height: 800px;
 }
 
 .box-description{
@@ -136,6 +136,7 @@ p {
 .description{
     margin-bottom: 20px;
     font-size: 18px;
+    max-width: 400px;
 }
 
 .description>span{
