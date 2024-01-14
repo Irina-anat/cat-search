@@ -7,8 +7,8 @@ body {
         Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    padding: 20px;
     margin: 0;
+    height: 100vh;
 }
 
 ul {
@@ -19,7 +19,7 @@ ul {
 
 img {
     display: block;
-
+    height: auto;
 }
 
 a {
@@ -91,4 +91,63 @@ p {
     clip: rect(0 0 0 0);
     clip-path: inset(100%);
     overflow: hidden;
+}
+
+.container{
+    margin: 0 auto;
+    height: 100vh;
+    padding: 20px;
+    max-width: 1200px;
+    background-color: #faebd7;
+}
+
+.box-description{
+    display: flex;
+}
+
+@media (max-width: 600px) {
+    .box-description {
+    flex-wrap: wrap;
+    }
+}
+
+.breed-select{
+    margin-bottom: 20px;
+}
+
+.img-thumb{
+    margin-bottom: 20px;
+    margin-right: 20px; 
+    max-width: 500px;  
+}
+
+
+@media (max-width: 600px) {
+    img {
+    max-width: 100%;
+    }
+}
+
+.title{
+    margin-bottom: 20px;
+    font-size: 26px;
+}
+
+.description{
+    margin-bottom: 20px;
+    font-size: 18px;
+}
+
+.description>span{
+    font-weight: 500;
+    font-size: 20px;
+}
+
+.wikipedia-link{
+    color: #007bff;
+    transition: color 0.3s ease;
+}
+
+.wikipedia-link:hover {
+    color: #0056b3;
 }

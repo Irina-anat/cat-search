@@ -10,12 +10,14 @@ const catInfo = document.querySelector('.cat-info');
 const loader = document.querySelector('.loader');
 const error = document.querySelector('.error');
 
+
 error.classList.add('is-hidden');
 
 let storedBreeds = [];
 
 fetchBreeds()
     .then(data => {
+        data = data.filter(img => img.image?.url != null)
         data.forEach(breed => {
             storedBreeds.push({ text: breed.name, value: breed.id });
         });
@@ -24,7 +26,7 @@ fetchBreeds()
             data: storedBreeds
         });
     })
-    .catch(err => console.log(err));
+    .catch(err => onError(err));
 
 //console.log(storedBreeds)
     
@@ -38,13 +40,27 @@ function onSelectBreed(event) {
    // console.log(breedId);
     fetchCatByBreed(breedId)
         .then(data => {
+            //console.log(data)
             loader.classList.add('is-hidden');
             catInfo.classList.remove('is-hidden');
             catInfo.innerHTML = createMarkup(data[0]);
         })
-        .catch(err => console.log(err));
+        .catch(err=>onError(err));
 };
 
+
+function onError(err) {
+    breedSelect.classList.add('is-hidden');
+    loader.classList.add('is-hidden');
+
+    Notify.failure('Oops! Something went wrong! Try reloading the page!',
+        {
+        position: 'center-center',
+        timeout: 3000,
+        width: '300px',
+        fontSize: '22px'
+    });
+};
 
     
 
