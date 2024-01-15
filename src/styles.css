@@ -10,6 +10,12 @@ body {
     margin: 0;
 }
 
+@media (max-width: 600px) {
+    body {
+        background-color: #faebd7;
+    }
+}
+
 ul {
     margin: 0;
     padding: 0;
@@ -100,11 +106,13 @@ p {
     height: 800px;
 }
 
+
+
 .box-description{
     display: flex;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 720px) {
     .box-description {
     flex-wrap: wrap;
     }
